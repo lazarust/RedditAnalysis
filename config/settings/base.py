@@ -30,7 +30,6 @@ import environ
 env = environ.Env()
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-5j^ncnk#=(3^euly-ok17zn_ag8t@#9f)5i#@ne4841%7%^a&0"
 SECRET_KEY = env("DJANGO_SECRET_KEY", default="dev")
 
 
