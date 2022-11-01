@@ -30,7 +30,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-env.read_env(str(BASE_DIR.joinpath('.env')))
+env.read_env(str(BASE_DIR.joinpath(".env")))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = env("SECRET_KEY")
