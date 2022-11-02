@@ -34,7 +34,8 @@ env.read_env(str(BASE_DIR.joinpath(".env")))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = env("SECRET_KEY")
-
+REDDIT_SECRET = env("REDDIT_SECRET")
+REDDIT_CLIENT = env("REDDIT_CLIENT")
 
 # Application definition
 
