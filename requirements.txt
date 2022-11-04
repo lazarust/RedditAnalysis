@@ -52,6 +52,10 @@ django==4.1.2 \
     # via
     #   -r requirements.in
     #   django-simple-deploy
+django-environ==0.9.0 \
+    --hash=sha256:bff5381533056328c9ac02f71790bd5bf1cea81b1beeb648f28b81c9e83e0a21 \
+    --hash=sha256:f21a5ef8cc603da1870bbf9a09b7e5577ab5f6da451b843dbcc721a7bca6b3d9
+    # via -r requirements.in
 django-simple-deploy==0.5.6 \
     --hash=sha256:b4ad298fff6d268ed32cb1e7a57cd0ee858a219a8a4238dcdcc8469a572cef7c \
     --hash=sha256:e76d24124ce1963c03391e2daf6247146eacf9e437d3d04210f3fd96eff0d923
