@@ -5,8 +5,6 @@ from .base import *
 DEBUG = True
 
 PEARS_INSTANCE_SLUG = env("PEARS_INSTANCE_SLUG", default="dev")
-EMAIL_HOST = env("EMAIL_HOST", default="smtp.mailtrap.io")
-EMAIL_PORT = env.int("EMAIL_PORT", default=587)
 X_FRAME_OPTIONS = "SAMEORIGIN"
 
 LOGGING = {
