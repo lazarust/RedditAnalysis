@@ -1,14 +1,16 @@
-FROM node:13-alpine
+FROM node:19-alpine
 
 WORKDIR /code
 
 ENV NODE_ENV development
 
 # Install Node packages
-# COPY .babelrc \
-#      .eslintrc.js \
-#      ./
+COPY .babelrc \
+     package.json \
+     package-lock.json \
+     webpack.config.js \
+     ./
 
-# RUN --mount=type=cache,target=/root/.npm npm ci
+RUN --mount=type=cache,target=/root/.npm npm ci
 
 COPY src/ ./src/

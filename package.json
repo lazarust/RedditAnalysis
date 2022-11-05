@@ -7,12 +7,18 @@
     "@babel/core": "^7.20.2",
     "@babel/preset-env": "^7.20.2",
     "babel-loader": "^9.1.0",
+    "clean-webpack-plugin": "^4.0.0",
     "webpack": "^5.74.0",
     "webpack-cli": "^4.10.0"
   },
   "scripts": {
     "dev": "webpack --mode development -- watch",
-    "build": "webpack --mode production"
+    "build": "webpack build",
+    "watch": "webpack watch"
+  },
+  "engines": {
+    "node": "13.x",
+    "npm": "7.x"
   },
   "repository": {
     "type": "git",

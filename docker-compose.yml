@@ -34,7 +34,7 @@ services:
       dockerfile: Dockerfile.node
     working_dir: /code
 
-    # command: sh -c "npm run watch"
+    command: sh -c "npm run watch"
 
     volumes:
       - .:/code
