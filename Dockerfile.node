@@ -1,0 +1,14 @@
+FROM node:13-alpine
+
+WORKDIR /code
+
+ENV NODE_ENV development
+
+# Install Node packages
+# COPY .babelrc \
+#      .eslintrc.js \
+#      ./
+
+# RUN --mount=type=cache,target=/root/.npm npm ci
+
+COPY src/ ./src/
