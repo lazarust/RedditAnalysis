@@ -20,7 +20,11 @@ BASE_DIR = Path(root())
 
 env = environ.Env()
 
-
+STATICFILES_DIRS = [
+    str(BASE_DIR.joinpath("static")),
+]
+STATIC_ROOT = str(BASE_DIR.joinpath("collected_static"))
+STATIC_URL = "/static/"
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 

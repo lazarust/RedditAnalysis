@@ -1,11 +1,10 @@
 {% extends "layouts/base.html" %}
-
+{% load static %}
 {% block content %}
-    <button hx-post="/clicked"
-        hx-trigger="click"
-        hx-target="#parent-div"
+    <div hx-get="/admin/"
         hx-swap="outerHTML"
     >
         Click Me!
-    </button>
+    </div>
+    <div class="parent-div"></div>
 {% endblock %}
