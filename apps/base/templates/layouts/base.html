@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+{% load static %}
+<script src="{% static "analyzer/main.js"%}"></script>
+
+<html lang="en">
+    {% block base_content %}
+    <div id="main-content" class="container">
+        {% block section_header %}
+        {% endblock %}
+        {% block content %}
+        {% endblock %}
+    </div>
+    {% endblock %}
+</html>

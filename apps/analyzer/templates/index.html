@@ -1,3 +1,11 @@
-<!DOCTYPE html>
-{% load static %}
-<script src="{% static "analyzer/main.js"%}"></script>
+{% extends "layouts/base.html" %}
+
+{% block content %}
+    <button hx-post="/clicked"
+        hx-trigger="click"
+        hx-target="#parent-div"
+        hx-swap="outerHTML"
+    >
+        Click Me!
+    </button>
+{% endblock %}
