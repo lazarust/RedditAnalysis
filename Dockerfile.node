@@ -1,0 +1,16 @@
+FROM node:19-alpine
+
+WORKDIR /code
+
+ENV NODE_ENV development
+
+# Install Node packages
+COPY .babelrc \
+     package.json \
+     package-lock.json \
+     webpack.config.js \
+     ./
+
+RUN --mount=type=cache,target=/root/.npm npm ci
+
+COPY src/ ./src/

@@ -25,3 +25,25 @@ services:
     environment:
       TERM: xterm-color
       <<: *DJANGO_ENV
+
+  node:
+    container_name: node
+    image: node
+    build:
+      context: .
+      dockerfile: Dockerfile.node
+    working_dir: /code
+
+    command: sh -c "npm run watch"
+
+    volumes:
+      - .:/code
+      - node-data:/code/node_modules
+
+    ports:
+      - 35729:35729
+
+    environment:
+      NODE_ENV: development
+volumes:
+  node-data:

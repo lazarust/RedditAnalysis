@@ -1,0 +1,10 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+{% block content %}
+    <div hx-get="/admin/"
+        hx-swap="outerHTML"
+    >
+        Click Me!
+    </div>
+    <div class="parent-div"></div>
+{% endblock %}
