@@ -1,20 +1,9 @@
 {% extends "layouts/base.html" %}
 {% load static %}
 {% block content %}
-    <div hx-get="/admin/"
-        hx-swap="outerHTML"
-        class="text-black"
-    >
-        Click Me!
-    </div>
-    <div class="parent-div"></div>
-    <script>
-        $(document).ready(function() {
-            $('.js-example-basic-single').select2();
-        });
-    </script>
-    <select class="js-example-basic-single" name="state">
-        <option value="AL">Alabama</option>
-        <option value="WY">Wyoming</option>
+    <select class="subreddit-select container mx-auto" name="subreddit-select">
+        {% for s in subs %}
+            <option>{{s}}</option>
+        {% endfor %}
       </select>
 {% endblock %}
