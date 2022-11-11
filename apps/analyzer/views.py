@@ -13,5 +13,4 @@ class IndexView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["subs"] = get_all_subs()
-        print(context)
         return context
