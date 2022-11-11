@@ -40,6 +40,7 @@ env.read_env(str(BASE_DIR.joinpath(".env")))
 SECRET_KEY = env("SECRET_KEY")
 REDDIT_SECRET = env("REDDIT_SECRET")
 REDDIT_CLIENT = env("REDDIT_CLIENT")
+REDDIT_USERNAME = env("REDDIT_USERNAME")
 
 # Application definition
 
