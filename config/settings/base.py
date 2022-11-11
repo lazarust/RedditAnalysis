@@ -32,7 +32,6 @@ STATIC_URL = "/static/"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
 
 env.read_env(str(BASE_DIR.joinpath(".env")))
 
@@ -41,6 +40,7 @@ SECRET_KEY = env("SECRET_KEY")
 REDDIT_SECRET = env("REDDIT_SECRET")
 REDDIT_CLIENT = env("REDDIT_CLIENT")
 REDDIT_USERNAME = env("REDDIT_USERNAME")
+ALLOWED_HOSTS = env.list("ALLOWED_HOSTS", default=[])
 
 # Application definition
 

@@ -22,6 +22,3 @@ COPY requirements.txt ./
 
 ## Install Python Packages
 RUN --mount=type=cache,target=/root/.cache/pip pip install -r /code/requirements.txt
-
-ENTRYPOINT ["python3"] 
-CMD ["manage.py", "runserver", "0.0.0.0:8080"]
