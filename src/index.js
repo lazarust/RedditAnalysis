@@ -12,3 +12,12 @@ window.addEventListener("DOMContentLoaded", (e) => {
       $(this).closest('select').get(0).dispatchEvent(new Event('change'));
   });
 });
+
+window.addEventListener("DOMContentLoaded", (e) => {
+  $('body').on('keyup', '.select2-search__field', function() {
+    var value = this.value;
+    console.log(value);
+    $.ajax('/search-subs/?' + $.param({text: value}))
+  });
+});
+
