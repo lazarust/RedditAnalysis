@@ -4,24 +4,16 @@ x-django_env: &DJANGO_ENV
   DJANGO_SETTINGS_MODULE: config.settings.dev
 
 services:
-  
-  web:
-    container_name: web
-
+  redditanalysis:
+    image: redditanalysis
     build:
       context: .
-      dockerfile: Dockerfile.dev
-
-    command: bash -c "python /code/manage.py migrate --noinput && python /code/manage.py runserver 0.0.0.0:8000"
-
-    volumes:
-      - .docker_bash_aliases:/root/.bash_aliases
-      - .:/code:cached
-
+      dockerfile: ./Dockerfile.dev
+    command: bash -c "python manage.py migrate --noinput && python manage.py runserver 0.0.0.0:8000"
     ports:
-      - "8000:8000"
-
+      - 8000:8000
     tty: true
+    env_file: .env
     environment:
       TERM: xterm-color
       <<: *DJANGO_ENV
@@ -33,17 +25,14 @@ services:
       context: .
       dockerfile: Dockerfile.node
     working_dir: /code
-
     command: sh -c "npm run watch"
-
     volumes:
       - .:/code
       - node-data:/code/node_modules
-
     ports:
       - 35729:35729
-
     environment:
       NODE_ENV: development
+
 volumes:
   node-data:

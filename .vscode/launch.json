@@ -1,0 +1,33 @@
+{
+    "configurations": [
+        {
+            "name": "Python: Remote Attach",
+            "type": "python",
+            "request": "attach",
+            "port": 5678,
+            "host": "localhost",
+            "pathMappings": [
+                {
+                    "localRoot": "${workspaceFolder}",
+                    "remoteRoot": "/app"
+                }
+            ]
+        },
+        {
+            "name": "Docker: Python - Django",
+            "type": "docker",
+            "request": "launch",
+            "preLaunchTask": "docker-compose: debug",
+            "python": {
+                "pathMappings": [
+                    {
+                        "localRoot": "${workspaceFolder}",
+                        "remoteRoot": "/app"
+                    }
+                ],
+                "projectType": "django"
+            },
+            "envFile": "${workspaceFolder}/.env",
+        }
+    ]
+}
