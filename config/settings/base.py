@@ -30,7 +30,7 @@ STATIC_URL = "/static/"
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env.bool("DEBUG", default=False)
 
 
 env.read_env(str(BASE_DIR.joinpath(".env")))
