@@ -1,27 +1,26 @@
+# For more information, please refer to https://aka.ms/vscode-docker-python
 FROM python:3.11
 LABEL maintainer="Thomas Lazarus (Github: lazarust)"
 
-ENV \
-    LANG=en_US.UTF-8 \
-    LANGUAGE=en_US:en \
-    LC_ALL=en_US.UTF-8 \
-    # Set the Django settings module for testing \
-    DJANGO_SETTINGS_MODULE=config.settings.base \
-    USER=root \
-    # This keeps Python from buffering stdin/stdout \
-    PYTHONUNBUFFERED=1 \
-    PYTHONPATH=/code
+EXPOSE 8000
 
-WORKDIR /code
-COPY . /code 
-RUN set -ex && \
-    pip install -U setuptools wheel pip  && \
-    cp /etc/skel/.bashrc /root/.bashrc
+# Keeps Python from generating .pyc files in the container
+ENV PYTHONDONTWRITEBYTECODE=1
 
-COPY requirements.txt ./
+# Turns off buffering for easier container logging
+ENV PYTHONUNBUFFERED=1
 
-## Install Python Packages
-RUN --mount=type=cache,target=/root/.cache/pip pip install -r /code/requirements.txt
+# Install pip requirements
+COPY requirements.txt .
+RUN python -m pip install -r requirements.txt
 
-ENTRYPOINT ["python3"] 
-CMD ["manage.py", "runserver", "0.0.0.0:8080"]
+WORKDIR /app
+COPY . /app
+
+# Creates a non-root user with an explicit UID and adds permission to access the /app folder
+# For more info, please refer to https://aka.ms/vscode-docker-python-configure-containers
+RUN adduser -u 5678 --disabled-password --gecos "" appuser && chown -R appuser /app
+USER appuser
+
+# During debugging, this entry point will be overridden. For more information, please refer to https://aka.ms/vscode-docker-python-debug
+CMD ["gunicorn", "--bind", "0.0.0.0:8000", "config.wsgi"]

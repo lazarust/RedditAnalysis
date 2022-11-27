@@ -8,34 +8,16 @@ services:
     image: redditanalysis
     build:
       context: .
-      dockerfile: ./Dockerfile.dev
+      dockerfile: ./Dockerfile
     command: bash -c "python manage.py migrate --noinput && python manage.py runserver 0.0.0.0:8000"
     volumes:
       - .docker_bash_aliases:/root/.bash_aliases
       - .:/app:cached
     ports:
       - 8000:8000
+      - 5678:5678
     tty: true
     env_file: .env
     environment:
       TERM: xterm-color
       <<: *DJANGO_ENV
-
-  node:
-    container_name: node
-    image: node
-    build:
-      context: .
-      dockerfile: Dockerfile.node
-    working_dir: /app
-    command: sh -c "npm run watch"
-    volumes:
-      - .:/app
-      - node-data:/app/node_modules
-    ports:
-      - 35729:35729
-    environment:
-      NODE_ENV: development
-
-volumes:
-  node-data:

@@ -10,10 +10,10 @@ ENV \
     USER=root \
     # This keeps Python from buffering stdin/stdout \
     PYTHONUNBUFFERED=1 \
-    PYTHONPATH=/code
+    PYTHONPATH=/app
 
-WORKDIR /code
-COPY . /code 
+WORKDIR /app
+COPY . /app 
 RUN set -ex && \
     pip install -U setuptools wheel pip  && \
     cp /etc/skel/.bashrc /root/.bashrc
@@ -21,4 +21,4 @@ RUN set -ex && \
 COPY requirements.txt ./
 
 ## Install Python Packages
-RUN --mount=type=cache,target=/root/.cache/pip pip install -r /code/requirements.txt
+RUN --mount=type=cache,target=/root/.cache/pip pip install -r /app/requirements.txt
