@@ -17,5 +17,7 @@ class ChartView(TemplateView):
             fig_utils.average_metric_by_date(data, metric="ups").to_html()
         )
 
+        chart_list.append(fig_utils.create_wordcloud(data).to_html())
+
         context["charts"] = chart_list
         return context

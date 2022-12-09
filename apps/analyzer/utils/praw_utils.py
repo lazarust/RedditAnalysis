@@ -1,5 +1,4 @@
 from config.settings.base import REDDIT_CLIENT, REDDIT_SECRET, REDDIT_USERNAME
-import praw
 import pandas as pd
 from datetime import datetime
 
@@ -20,6 +19,7 @@ def iterator_to_dataframe(iterator) -> pd.DataFrame:
                 "date": datetime.fromtimestamp(submission_dict["created_utc"]).date(),
                 "num_crossposts": submission_dict["num_crossposts"],
                 "is_video": submission_dict["is_video"],
+                "text": submission_dict["name"],
             }
         )
 
