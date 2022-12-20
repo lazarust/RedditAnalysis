@@ -22,6 +22,12 @@ class ChartView(TemplateView):
                 data, metric="author_karma"
             ).to_html()
         )
+         
+        chart_list.append(
+            fig_utils.average_metric_by_date_figure(
+                data, metric="num_comments"
+            ).to_html()
+        )
 
         # chart_list.append(fig_utils.create_wordcloud(data).to_html())
 
