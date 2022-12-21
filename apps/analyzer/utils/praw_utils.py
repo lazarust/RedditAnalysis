@@ -2,9 +2,11 @@ from config.settings.base import REDDIT_CLIENT, REDDIT_SECRET, REDDIT_USERNAME
 import pandas as pd
 import praw
 from datetime import datetime
+import time
 
 
 def iterator_to_dataframe(iterator) -> pd.DataFrame:
+    start = time.time()
     print("Converting iterator to dataframe")
     data = []
     for submission in iterator:
@@ -12,8 +14,6 @@ def iterator_to_dataframe(iterator) -> pd.DataFrame:
             {
                 "id": submission.id,
                 "score": submission.score,
-                "ups": submission.ups,
-                "downs": submission.downs,
                 "upvote_ratio": submission.upvote_ratio,
                 "edited": submission.edited,
                 "num_comments": submission.num_comments,
@@ -26,7 +26,8 @@ def iterator_to_dataframe(iterator) -> pd.DataFrame:
                 else 0,
             }
         )
-    print("Done converting iterator to dataframe")
+    end = time.time()
+    print(f"Done converting iterator to dataframe in: {end - start} seconds")
     return pd.DataFrame(data)
 
 
