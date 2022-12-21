@@ -15,5 +15,6 @@ $(() => {
 window.addEventListener("DOMContentLoaded", (e) => {
   $('select').on('select2:select', function (e) {
       $(this).closest('select').get(0).dispatchEvent(new Event('change'));
+      $('.charts').empty();
   });
 });
