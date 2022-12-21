@@ -7,3 +7,7 @@
 ## Description
 
 The purpose of this project is being able to display detailed statistics and charts of a selected subreddit.
+
+## UI
+Here's the very basic outline of what the UI  will be like. I'm planning to add a dark mode toggle and probably make the select box a little shorter.
+![UI Example](/readme_images/UI%20Example.png)
