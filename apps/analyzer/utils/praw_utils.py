@@ -5,6 +5,7 @@ from datetime import datetime
 
 
 def iterator_to_dataframe(iterator) -> pd.DataFrame:
+    print("Converting iterator to dataframe")
     data = []
     for submission in iterator:
         data.append(
@@ -25,6 +26,7 @@ def iterator_to_dataframe(iterator) -> pd.DataFrame:
                 else 0,
             }
         )
+    print("Done converting iterator to dataframe")
     return pd.DataFrame(data)
 
 
