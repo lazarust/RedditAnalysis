@@ -1,7 +1,9 @@
 {% extends "layouts/base.html" %}
 {% load static %}
 {% block content %}
-    <select class="subreddit-select container mx-auto" name="subreddit-select" hx-get="/subreddit/" hx-target=".charts" hx-trigger="change"></select>
+    <div class="w-1/3 mx-auto">
+        <select class="subreddit-select container" name="subreddit-select" hx-get="/subreddit/" hx-target=".charts" hx-trigger="change"></select>
+    </div>
     <div class="charts">
         
     </div>

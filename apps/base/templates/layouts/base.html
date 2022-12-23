@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 {% load static %}
 <script src="{% static "analyzer/main.js"%}"></script>
-<link rel="stylesheet" type="text/css" href="{% static "css/output.css"%}" media=”screen” />
-<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="{% static "css/main.css"%}" />
 
 <html lang="en">
     {% block base_content %}
-    <div id="main-content" class="container">
+    <div id="main-content">
         {% block section_header %}
         {% endblock %}
         {% block content %}

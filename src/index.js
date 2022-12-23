@@ -1,5 +1,5 @@
 import 'htmx.org';
-import './main.css';
+import './main.scss';
 import $ from 'jquery';
 import 'select2';                
 
@@ -8,7 +8,9 @@ $(() => {
       ajax: {
         url: '/api/search-subs',
         dataType: 'json'
-      }
+      },
+      dropdownCssClass: 'sm bg-slate-800 text-white',
+      selectionCssClass: 'sm bg-slate-800 text-white',
     });
 });
 
