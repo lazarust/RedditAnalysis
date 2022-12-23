@@ -9,8 +9,8 @@ $(() => {
         url: '/api/search-subs',
         dataType: 'json'
       },
-      dropdownCssClass: 'sm bg-slate-800 text-white',
-      selectionCssClass: 'sm bg-slate-800 text-white',
+      dropdownCssClass: ':all:',
+      selectionCssClass: ':all:',
     });
 });
 
