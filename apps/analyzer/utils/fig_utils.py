@@ -2,7 +2,7 @@ import plotly.express as px
 import pandas as pd
 
 
-def average_metric_by_date_figure(df: pd.DataFrame, metric: str) -> px.line:
+def average_metric_by_date_figure(df: pd.DataFrame, metric: str) -> str:
     """
     This function creates a figure that shows the average of a metric by date
     :param df: a dataframe with the data
@@ -17,5 +17,11 @@ def average_metric_by_date_figure(df: pd.DataFrame, metric: str) -> px.line:
         labels={"date": "Date", metric: f'Average {metric.replace("_", " ").title()}'},
         markers=True,
         title=f'Average {metric.replace("_", " ").title()} by Date',
+        template="plotly_dark",
     )
-    return fig
+    return fig.to_html(
+        config={"displaylogo": False},
+        include_plotlyjs=False,
+        full_html=False,
+        default_width="75%",
+    )
