@@ -13,26 +13,18 @@ class ChartView(TemplateView):
     def create_charts(self, data: pd.DataFrame) -> list[str]:
         chart_list = []
 
+        chart_list.append(fig_utils.average_metric_by_date_figure(data, metric="score"))
+
         chart_list.append(
-            fig_utils.average_metric_by_date_figure(data, metric="score").to_html()
+            fig_utils.average_metric_by_date_figure(data, metric="upvote_ratio")
         )
 
         chart_list.append(
-            fig_utils.average_metric_by_date_figure(
-                data, metric="upvote_ratio"
-            ).to_html()
+            fig_utils.average_metric_by_date_figure(data, metric="author_karma")
         )
 
         chart_list.append(
-            fig_utils.average_metric_by_date_figure(
-                data, metric="author_karma"
-            ).to_html()
-        )
-
-        chart_list.append(
-            fig_utils.average_metric_by_date_figure(
-                data, metric="num_comments"
-            ).to_html()
+            fig_utils.average_metric_by_date_figure(data, metric="num_comments")
         )
 
         return chart_list
